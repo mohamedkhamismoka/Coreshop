@@ -1,0 +1,25 @@
+﻿
+@model IdentityRole
+
+<h2>Edit</h2>
+<center>
+    <form asp-area="Admin" asp-controller="Admin"  class="form-group" style="width:500px">
+
+
+    <input type="hidden" asp-for="Id" />
+    
+    <label asp-for="Name">Role Name</label>
+    <input type="text" placeholder="Role Name" asp-for="Name" class="form-control" />
+    <br />
+
+    <center>
+        <input type="submit" value="Edit" class="btn btn-primary btn-block" />
+    </center>
+
+</form>
+
+
+
+<a asp-area="Admin" asp-controller="Admin"  asp-action="EditUserInRole" asp-route-id="@Model.Id" style="color:red;text-decoration:none;font-size:20px">Add Or Remove User With Role</a>
+</center>
+

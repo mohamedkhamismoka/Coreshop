@@ -1,0 +1,53 @@
+﻿
+
+@model IEnumerable<IdentityRole>
+
+<h2>Get Roles</h2>
+
+
+
+<style>
+    th {
+        text-align: center !important;
+    }
+</style>
+
+<link href="~/plugins/bootstrap-select/css/bootstrap-select.css" rel="stylesheet" />
+
+<br />
+
+
+<a asp-area="Admin" asp-controller="Admin" asp-action="Create" class="btn btn-primary btn-block">Create New Role</a>
+
+
+                <div class="body">
+                   
+                    <table class="table table-bordered table-striped table-hover  text-center font-weight-bold">
+                            <thead class="thead-dark">
+                                <tr>
+                                    <th>Name</th>
+                                   
+                                    <th>Update</th>
+                                    <th>Delete</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+                                    <tr>
+                                        <td>@item.Name</td>
+x                                        <td><a asp-area="Admin" asp-action="Edit" asp-controller="Admin" asp-route-id="@item.Id" class="btn btn-warning">Edit</a></td>
+                                        <td><a asp-area="Admin" asp-action="Delete" asp-controller="Admin" asp-route-id="@item.Id" class="btn btn-danger">Delete</a></td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+        
+
+
+
+
+
+
+

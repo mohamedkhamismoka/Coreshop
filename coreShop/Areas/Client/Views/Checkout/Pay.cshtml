@@ -1,0 +1,217 @@
+﻿@model PayVM
+@{
+    List<Product_cartVM> product_s = new List<Product_cartVM>();
+}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Home</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="~/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
+          integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <!-- Custom styles for this template -->
+    <link href="~/css/heroic-features.css" rel="stylesheet">
+
+</head>
+
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <div class="container">
+        <a class="navbar-brand" href="#">CoreShop</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+                aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="#"><i class="fa fa-shopping-cart"></i> Cart <strong>(@ViewBag.count)</strong>
+                    </a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-item nav-link dropdown-toggle mr-md-2" href="#" id="bd-versions"
+                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="fa fa-user"></i> Account
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="bd-versions">
+                        <a class="dropdown-item " asp-area="Account" asp-controller="Account" asp-action="Login">Sign In</a>
+                        <a class="dropdown-item" asp-area="Account" asp-controller="Account" asp-action="Register">Sign Up</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+
+<!-- Page Content -->
+<div class="container">
+
+    <h2 class="mt-5"><i class="fa  fa-credit-card-alt"></i> Checkout</h2>
+    <hr>
+ @*   @foreach (var item in @ViewBag.Products)
+        {
+            product_s.Add(item);
+        }*@
+
+        <div class="row"> 
+
+        <div class="col-md-7">  
+            <h4>Billing Details</h4>
+
+               <form asp-area="Client" asp-controller="Checkout" asp-action="Pay" method="post">  
+                  @* <input value="@product_s" name="prods" type="hidden" />*@
+                    <input value="@User.Identity.Name" name="user" type="hidden" />
+                  
+                    <div class="form-group ">
+                      <label asp-for="mail">Email</label>
+                      <input type="email" class="form-control"  placeholder="mail" asp-for="mail"> 
+                      <br />
+                      <span class="text-danger font-weight-bold" asp-validation-for="mail"></span>
+                    </div>
+                    <div class="form-group ">
+                      <label asp-for="name">Name</label>
+                      <input type="text" class="form-control"  placeholder="Name"asp-for="name">
+                        <br />
+                      <span class="text-danger font-weight-bold" asp-validation-for="name"></span>
+                    </div>
+                  
+                  <div class="form-group">
+                    <label asp-for="Address">Address</label>
+                    <input type="text" class="form-control" id="address" placeholder="1234 Main St"  asp-for="Address">
+                      <br />
+                      <span class="text-danger font-weight-bold" asp-validation-for="Address"></span>
+                  </div>
+
+                    <div class="form-group ">
+                      <label asp-for="City">City</label>
+                      <input type="text" class="form-control" id="city" placeholder="City" asp-for="City">
+                                 <br />
+                      <span class="text-danger font-weight-bold" asp-validation-for="City"></span>
+                    </div>
+               
+                  <div class="form-group">
+                    <label asp-for="phone">Phone</label>
+                    <input type="text" class="form-control" id="phone" placeholder="Phone" asp-for="phone">
+                                <br />
+                      <span class="text-danger font-weight-bold" asp-validation-for="phone"></span>
+                  </div>
+                  <hr>
+                  <h5><i class="fa fa-credit-card"></i> Payment Details</h5>
+
+                  <div class="form-group">
+                    <label asp-for="creditname">Name on card</label>
+                    <input type="text" class="form-control" id="name_card" placeholder="Name on card" asp-for="creditname">
+                                         <br />
+                      <span class="text-danger font-weight-bold" asp-validation-for="creditname"></span>
+                  </div>
+
+                  <div class="form-group">
+                    <label asp-for="Creditnumber">Credit or debit card</label>
+                    <input type="text" class="form-control" id="card" placeholder="Credit or debit card" asp-for="Creditnumber">
+                                         <br />
+                      <span class="text-danger font-weight-bold" asp-validation-for="Creditnumber"></span>
+                  </div>
+                  
+                  <button type="submit" class="btn btn-outline-info col-md-12">Complete Order</button>
+                </form>
+
+            </div>
+
+            <div class="col-md-5">
+                
+            <h4>Your Order</h4>
+                
+                <table class="table your-order-table">
+                    <thead>
+
+                 
+                    <tr>
+                        <th>Image</th>
+                        <th>Details</th>
+                        <th>Qty</th>
+                    </tr>
+                       </thead>
+                    <tbody>
+                    @foreach (var item in @ViewBag.Products)
+                    {
+                        if (!item.saveforlater && item.product.quantity >0)
+                        {
+                                     <tr>
+                        <td><img src="~/files/images/@item.product.image" alt="" style="width: 4em"></td>
+                        <td>
+                            <strong>@item.product.description</strong><br>
+                           
+                            <span class="text-dark">@item.product.price</span>
+                        </td>
+                        <td>
+                            <span class="badge badge-light">@item.quantity</span>
+                        </td>
+                    </tr>
+                        }
+               
+                   }
+                  
+                  </tbody> 
+                </table>
+
+                <hr>
+                <table class="table detail table-bordered">
+                    <tr>
+                        <th colspan="2">Price Details</th>
+                    </tr>
+                    <tr>
+                        <td>Subtotal</td>
+                             
+                                <td></td>
+                                    
+                    </tr>
+                    <tr>
+                        <td>Tax</td>
+                        <td>$0</td>
+                    </tr>
+                    <tr>
+                        <th>Total</th>
+                        <th>1200</th>
+                    </tr>
+                    
+                </table>
+
+            </div>
+        </div>
+
+</div>
+<!-- /.container -->
+
+<div class="mt-5"><hr></div>
+
+
+<!-- Bootstrap core JavaScript -->
+<script src="~/vendor/jquery/jquery.min.js"></script>
+<script src="~/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="~/jquery/jquery.min.js"></script>
+<script src="~/jquery-validate/jquery.validate.min.js"></script>
+<script src="~/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+<script>
+    var total=0;
+     $(".your-order-table tbody tr").each(function(){
+     var ele=parseInt($(this).find("td:last-child span").html())*parseInt($(this).find("td:nth-child(2) span").html())
+    
+   total+=ele;
+  })
+    $(".detail tr:nth-child(2)").find("td:nth-child(2)").html(total.toString());
+                       $(".detail tr:nth-child(3)").find("td:nth-child(2)").html(total*10/100);
+                        $(".detail tr:nth-child(4)").find("th:nth-child(2)").html((total*10/100)+total);
+</script>
+</body>
+
+</html>

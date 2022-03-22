@@ -1,0 +1,380 @@
+﻿@model IEnumerable<ProductVm>
+@inject IProduct_cart prod_cart
+@{
+    int total = 0;
+    List<int> empty = new List<int>();
+}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Home</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="~/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
+          integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <!-- Custom styles for this template -->
+    <link href="~/css/heroic-features.css" rel="stylesheet">
+
+
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">CoreShop</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+                    aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">
+                            <i class="fa fa-shopping-cart"></i> Cart <strong>(@ViewBag.count)</strong>
+                        </a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-item nav-link dropdown-toggle mr-md-2" href="#" id="bd-versions"
+                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="fa fa-user"></i> Account
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="bd-versions">
+                            <a class="dropdown-item " asp-area="Account" asp-controller="Account" asp-action="Login">Sign In</a>
+                            <a class="dropdown-item" asp-area="Account" asp-controller="Account" asp-action="Register">Sign Up</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+    <!-- Page Content -->
+    <div class="container">
+
+        <h2 class="mt-5"><i class="fa fa-shopping-cart"></i> Shooping Cart</h2>
+        <hr>
+
+        <h4 class="mt-5">@Model.Count() items(s) in Shopping Cart</h4>
+
+        <div class="cart-items">
+
+            <div class="row">
+
+                <div class="col-md-12">
+
+                    <table class="table con">
+
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                
+                                <tr>
+                                    <td class="id" style="display:none">@item.Id</td>
+                                    <td><img src="~/files/images/@item.image" style="width: 5em"></td>
+                                    <td>
+                                        @item.description
+                                    </td>
+
+                                    <td>
+
+                                        <a class="rmv" href=""> Remove</a><br>
+
+                                        <a class="sfl" href="">Save for later</a>
+                                    </td>
+                                    <td>
+                                        <select name="" class="quantity form-control" style="width: 4.7em">
+                                            @for (int i = 1; i < 7; i++)
+                                            {
+                                                if (prod_cart.get_count_in_cart(ViewBag.cart, item.Id) == i && item.quantity > prod_cart.get_count_in_cart(ViewBag.cart, item.Id))
+                                                {
+                                                    <option value="@prod_cart.get_count_in_cart(ViewBag.cart, item.Id)" selected>@i</option>
+                                                }
+                                                else if(item.quantity == 0 )
+                                                {
+                                                    
+                                                    empty.Add(item.Id);
+                                                      
+                                                 
+                                                }
+                                                else 
+                                                {
+                                                    
+                                                        <option value="@i" >@i</option>
+                                                  
+
+
+
+                                                }
+
+
+                                            }
+
+                                        </select>
+                                    </td>
+
+                                    <td>@item.price</td>
+                                </tr>
+                            }
+
+
+                            
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+                <!-- Price Details -->
+                <div class="col-md-6">
+                    <div class="sub-total">
+                        <table class=" bill table table-bordered table-hover">
+                            <thead>
+                                <tr>
+                                    <th colspan="2">Price Details</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Subtotal </td>
+                                    <td>
+
+                                        @foreach (var item in Model)
+                                        { total += item.price; }
+                                        @total
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Text</td>
+                                    <td>@((@total)*10/100)</td>
+                                </tr>
+                                <tr>
+                                    <td>Total</td>
+                                    <td>@(@total+@total*10/100)</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <!-- Save for later  -->
+                <div class="col-md-12">
+                    <a class="btn btn-outline-dark cout" asp-area="Client" asp-controller="Client" asp-action="Index" asp-route-id="@ViewBag.cart">Continue Shopping</a>
+                    <a class="btn btn-outline-info cout gotopay" asp-area="Client" asp-controller="Checkout" asp-action="pay" asp-route-id="@ViewBag.cart">Proceed to checkout</a>
+                    <hr>
+
+                </div>
+
+                <div class="col-md-12 sl">
+
+                    <h4> </h4>
+                    <table class="table">
+
+                        <tbody>
+                            @foreach (var item in prod_cart.GEtSavaed(ViewBag.cart))
+                            {
+
+                                <tr>
+                                    <td class="id" style="display:none">@item.Id</td>
+                                    <td><img src="~/files/images/@item.image" style="width: 5em"></td>
+                                    <td>
+                                        @item.description
+                                    </td>
+
+                                    <td>
+
+                                        <a class="slrmv" href=""> Remove</a><br>
+
+
+                                    </td>
+
+
+
+                                    <td>@item.price</td>
+                                </tr>
+
+                            }
+
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+    <!-- /.container -->
+    <!-- Bootstrap core JavaScript -->
+    <script src="~/vendor/jquery/jquery.min.js"></script>
+    <script src="~/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script>
+       $(document).ready(function () {
+
+           if($(".bill tbody tr").first().find("td:nth-child(2)").html()==0){
+            
+               $(".gotopay").css("pointer-events","none");
+               $(".gotopay").removeClass("btn-outline-info")
+        $(".gotopay").addClass("btn-outline-dark")
+           }
+
+         $(".con tbody tr").each(function(){
+            var id=[]
+            @foreach (var item in empty)
+           {
+           @:id.push(@item)
+           }
+
+            for (var i = 0; i < id.length; i++)
+            {
+                if($(this).find("td:first-child").html()==id[i]){
+                $(this).find("td:nth-child(5)").replaceWith("<td>Not Available Now</td>") 
+            }
+            
+             }
+         })
+	var unit = 0;
+	$(".con tbody tr").each(function () {
+		var ele = parseInt($(this).find("td:last-child").html()) * parseInt($(this).find(".quantity").val())
+        if(isNaN(ele)){
+            ele=0;
+        }
+
+		unit += ele;
+	})
+
+        $(".bill tbody tr").first().find("td:nth-child(2)").html(unit.toString());
+	$(".bill tbody tr:nth-child(2)").find("td:nth-child(2)").html(unit * 10 / 100);
+	$(".bill tbody tr:nth-child(3)").find("td:nth-child(2)").html((unit * 10 / 100) + unit);
+
+    
+	
+	var x = $(".sl table tr").length;
+	$(".sl h4").html(x + " items(s) saved for Later in  Shopping Cart")
+	$(".quantity").on('change', function (e) {
+		var row = $(this);
+		var product_id = $(this).parent().parent().find(".id").html();
+		var quan = $(this).find(":selected").val();
+		$.ajax({
+			method: "POST",
+			url: "/Client/Cart/CheckProduct",
+			data: {
+				product_id: product_id,
+				cart_id: @ViewBag.cart,
+				quantity: quan
+			},
+			success: function (res) {
+				if (res.state == 1 && res.count == 0) {
+					var unitprice = 0;
+
+					$(".con tbody tr").each(function () {
+						var ele = parseInt($(this).find("td:last-child").html()) * parseInt($(this).find(".quantity").val())
+                         if(isNaN(ele)){
+            ele=0;
+        }
+						unitprice += ele;
+					})
+
+					$(".bill tbody tr").first().find("td:nth-child(2)").html(unitprice.toString());
+					$(".bill tbody tr:nth-child(2)").find("td:nth-child(2)").html(unitprice * 10 / 100);
+					$(".bill tbody tr:nth-child(3)").find("td:nth-child(2)").html((unitprice * 10 / 100) + unitprice);
+				} else {
+					row.val("1").change()
+					alert("there is not enough quantity for your order in our Stock ")
+
+
+				}
+			}
+
+		})
+	})
+
+
+	$(".rmv").click(function () {
+		var id = $(this).parent().parent().find(".id").html();
+		var ele = $(this).parent().parent();
+		$.ajax({
+			method: "POST",
+			url: "/Client/Cart/Remove",
+			data: {
+				product_id: id,
+				cart_id: @ViewBag.cart
+			},
+			success: function (res) {
+				if (res.state == 1) {
+					console.log("done");
+					$(".con table tbody").remove($(this).parent().parent());
+					location.reload(true)
+				}
+			}
+
+
+		})
+	})
+	$(".slrmv").click(function () {
+		var id = $(this).parent().parent().find(".id").html();
+		var ele = $(this).parent().parent();
+		$.ajax({
+			method: "POST",
+			url: "/Client/Cart/Remove",
+			data: {
+				product_id: id,
+				cart_id: @ViewBag.cart
+			},
+			success: function (res) {
+				if (res.state == 1) {
+					$(this).closest('tr').remove();
+					location.reload(true)
+				}
+
+			}
+		})
+	})
+
+	$(".sfl").click(function () {
+		var product_id = $(this).parent().parent().find(".id").html();
+		var ele = $(this).parent().parent();
+		console.log(ele.html())
+		$.ajax({
+			method: "POST",
+			url: "/Client/Cart/ChangeState",
+			data: {
+				product_id: product_id,
+				cart_id: @ViewBag.cart
+			},
+			success: function (res) {
+				if (res.state == 1) {
+
+					if ($(".sl .table tbody tr").length > 0) {
+						$(".sl .table tbody tr:last").after(ele);
+					} else {
+						$(".sl .table tbody").append("<tr>" + ele + "</tr>");
+					}
+
+					$(".con table tbody").remove($(this).parent().parent())
+					location.reload(true)
+
+
+				}
+			}
+		})
+	})
+
+})
+
+    </script>
+
+</body>
+
+</html>
+

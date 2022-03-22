@@ -1,0 +1,19 @@
+﻿@model IdentityRole
+
+<h2>Create</h2>
+
+
+<center>
+<form  asp-area="Admin" asp-controller="Admin" asp-action="Create" class="form-group" style="width:500px">
+
+
+    <label asp-for="Name">Role Name</label>
+    <input type="text" placeholder="Enter Role" class="form-control" asp-for="Name" autofocus />
+    <br />
+
+    <input type="submit" value="Save" class="btn btn-primary btn-block" />
+
+</form>
+
+
+</center>

@@ -1,0 +1,102 @@
+﻿@model ApplicationUser
+@inject RoleManager<IdentityRole> Rolemanager
+@inject UserManager<ApplicationUser> UserManager
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+
+<div class="content">
+            <div class="container-fluid">
+                <div class="row">
+
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="header">
+                                <h4 class="title">All Products</h4>
+                                <p class="category">List of all stock</p>
+                            </div>
+                            <div class="content table-responsive table-full-width">
+                                <table class="table table-striped">
+                                    <thead>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Name</th>
+                                        <th>Address</th>
+                                        <th>Role</th>
+                                        <th>Status</th>
+                                        <th>Action</th>
+                                       
+                                      
+                                        
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                             
+                                       
+                                           <tr>
+                                               <td>@Model.Id</td>
+                                               <td>@Model.UserName</td>
+                                               <td>@Model.address</td>
+                                              
+                                            @foreach (var role in ViewBag.roles)
+                                            {
+                                                var user = await UserManager.FindByIdAsync(Model.Id);
+                                                if( await UserManager.IsInRoleAsync(user, role.Name))
+                                                {
+                                                    <td>@role</td>
+                                                }
+                                            }
+                                            
+                                            @if (Model.isActive)
+                                            {      <td>
+                                                  <span class="label label-success">Active</span>
+                                                  </td>
+
+                                            }   
+                                            else
+                                                {<td>
+                                                      <span class="label label-warning">Blocked</span>
+                                                      </td>
+                                                }
+
+                                            
+                                            
+                                                 @if (Model.isActive){
+                                                <td>
+
+
+                                                <a class="btn btn-sm btn-success ti-close" asp-area="Admin" asp-controller="Users" asp-action="StateChange" asp-route-id="@Model.Id" title="Block User"></a>
+                                            </td>
+                                                 }
+                                         else
+                                            {
+                                                <td>
+                                       <a class="btn btn-sm btn-success ti-check" asp-area="Admin" asp-controller="Users" asp-action="StateChange" asp-route-id="@Model.Id" title="Activate User"></a>
+
+                                                </td>
+
+                                            }
+                                           
+
+                                           </tr>
+                                           
+                                       
+                                       
+                                       
+                                        
+                                   
+                                  
+                                       
+                                       
+                                    </tbody>
+                                </table>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <a class="btn btn-primary" asp-area="Admin" asp-controller="Users"  asp-action="Index">Back</a>

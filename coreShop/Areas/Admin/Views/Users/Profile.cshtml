@@ -1,0 +1,74 @@
+﻿@model ApplicationUser
+@{
+    ViewData["Title"] = "Profile";
+}
+
+
+<div class="content">
+    <div class="container-fluid">
+        <div class="row">
+
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="header">
+                        <h4 class="title">User Profile</h4>
+
+                    </div>
+                    <div class="content table-responsive table-full-width">
+                        <table class="table table-striped">
+                            <tbody>
+
+                                <tr>
+                                    <th>ID</th>
+                                    <td>@Model.Id</td>
+                                </tr>
+
+                                <tr>
+                                    <th>Name</th>
+                                    @for (int i = 0; i < Model.UserName.Length; i++)
+                                    {
+                                        if (Model.UserName[i] == '@')
+                                        {
+                                            <td>@Model.UserName.Substring(0,i)  </td>
+                                        }
+
+
+                                    }
+                                </tr>
+
+                                <tr>
+                                    <th>Email</th>
+                                    <td>@Model.Email</td>
+                                </tr>
+
+                                <tr>
+                                    <th>address</th>
+                                    <td>@Model.address</td>
+                                </tr>
+
+
+
+                                <tr>
+                                    <th>Status</th>
+                                    @if (Model.isActive)
+                                    {
+                                        <td>Active</td>
+                                    }
+                                    else
+                                    {
+                                        <td>Blocked</td>
+
+                                    }
+
+                                </tr>
+
+                            </tbody>
+
+                        </table>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,28 @@
+﻿
+@model IdentityRole
+
+
+@{
+    ViewData["Title"] = "Delete";
+  
+}
+
+<h2>Delete</h2>
+<center>
+    <form asp-area="Admin" asp-controller="Admin"  asp-action="Delete" class="form-group" style="width:500px">
+
+
+    <input type="hidden" asp-for="Id" />
+
+    <label asp-for="Name">Role Name</label>
+    <input type="text" placeholder="Role Name" asp-for="Name" class="form-control" readonly />
+    <br />
+
+    <center>
+        <input type="submit" value="Delete" class="btn btn-primary btn-block" />
+    </center>
+
+</form>
+</center>
+
+
