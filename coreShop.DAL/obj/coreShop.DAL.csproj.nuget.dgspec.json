@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\EL-Masria\\Desktop\\coreShop\\coreShop.DAL\\coreShop.DAL.csproj": {}
+    "C:\\Users\\EL-Masria\\Documents\\GitHub\\CoreShopp\\coreShop.DAL\\coreShop.DAL.csproj": {}
   },
   "projects": {
-    "C:\\Users\\EL-Masria\\Desktop\\coreShop\\coreShop.DAL\\coreShop.DAL.csproj": {
+    "C:\\Users\\EL-Masria\\Documents\\GitHub\\CoreShopp\\coreShop.DAL\\coreShop.DAL.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\EL-Masria\\Desktop\\coreShop\\coreShop.DAL\\coreShop.DAL.csproj",
+        "projectUniqueName": "C:\\Users\\EL-Masria\\Documents\\GitHub\\CoreShopp\\coreShop.DAL\\coreShop.DAL.csproj",
         "projectName": "coreShop.DAL",
-        "projectPath": "C:\\Users\\EL-Masria\\Desktop\\coreShop\\coreShop.DAL\\coreShop.DAL.csproj",
+        "projectPath": "C:\\Users\\EL-Masria\\Documents\\GitHub\\CoreShopp\\coreShop.DAL\\coreShop.DAL.csproj",
         "packagesPath": "C:\\Users\\EL-Masria\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\EL-Masria\\Desktop\\coreShop\\coreShop.DAL\\obj\\",
+        "outputPath": "C:\\Users\\EL-Masria\\Documents\\GitHub\\CoreShopp\\coreShop.DAL\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

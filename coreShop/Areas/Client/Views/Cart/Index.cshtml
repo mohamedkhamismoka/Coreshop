@@ -38,7 +38,7 @@
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
                         <a class="nav-link" href="#">
-                            <i class="fa fa-shopping-cart"></i> Cart <strong>(@ViewBag.count)</strong>
+                            <i class="fa fa-shopping-cart"></i> Cart <strong >(@ViewBag.count)</strong>
                         </a>
                     </li>
                     <li class="nav-item dropdown">
@@ -176,7 +176,7 @@
                 <div class="col-md-12 sl">
 
                     <h4> </h4>
-                    <table class="table">
+                    <table class="table sForl">
 
                         <tbody>
                             @foreach (var item in prod_cart.GEtSavaed(ViewBag.cart))
@@ -220,7 +220,7 @@
     <script src="~/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script>
        $(document).ready(function () {
-
+          localStorage.setItem('count',$('.counter').html())
            if($(".bill tbody tr").first().find("td:nth-child(2)").html()==0){
             
                $(".gotopay").css("pointer-events","none");
@@ -314,12 +314,14 @@
 				if (res.state == 1) {
 					console.log("done");
 					$(".con table tbody").remove($(this).parent().parent());
-					location.reload(true)
+                    location.reload()
+				
 				}
 			}
 
-
 		})
+                 
+     
 	})
 	$(".slrmv").click(function () {
 		var id = $(this).parent().parent().find(".id").html();
@@ -334,12 +336,14 @@
 			success: function (res) {
 				if (res.state == 1) {
 					$(this).closest('tr').remove();
-					location.reload(true)
+				location.reload()
 				}
 
 			}
 		})
+           
 	})
+
 
 	$(".sfl").click(function () {
 		var product_id = $(this).parent().parent().find(".id").html();
@@ -362,7 +366,7 @@
 					}
 
 					$(".con table tbody").remove($(this).parent().parent())
-					location.reload(true)
+				
 
 
 				}

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "QH9okkfPyU9iyzKhSUdTcS7O9dtDE1S2hkkahM4dwxDJg9PuI1j+xfMv9kvMFu10c4h4jQThJqAJ50kVxxeBxA==",
+  "dgSpecHash": "aak0hxaC8gGVQpcJq0yAe1nggwdn95ekUEL5Vnp2zSHGfZiEigxMBk2Ng7JoZMQf+0u8fKPKRKaEwCo7DGyXpw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\EL-Masria\\Desktop\\coreShop\\coreShop\\coreShop.csproj",
+  "projectFilePath": "C:\\Users\\EL-Masria\\Documents\\GitHub\\CoreShopp\\coreShop\\coreShop.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\EL-Masria\\.nuget\\packages\\automapper\\11.0.1\\automapper.11.0.1.nupkg.sha512",
     "C:\\Users\\EL-Masria\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\11.0.0\\automapper.extensions.microsoft.dependencyinjection.11.0.0.nupkg.sha512",

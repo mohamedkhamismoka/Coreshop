@@ -116,13 +116,10 @@
 <script src="~/font-awesome/js/all.js"> </script>
 <script>
    
-(function () {
-	window.onpageshow = function(event) {
-		if (event.persisted) {
-			window.location.reload();
-		}
-	};
-})();
+//function preventback(){window.history.forward()}
+//setTimeout("preventback()",0)
+//window.onunload=function(){null}
+
 
       var products=[];
       var cartid=$(".card .hid").val();
@@ -182,10 +179,9 @@
             url:"/Client/Cart/Load",
             data:{products:products,cart:cartid},
             success:function(res){
-              
-                   
-
-                    window.location.href="/Client/Cart/Index?cart="+cartid+""
+                  
+                  window.location.replace("/Client/Cart/Index?cart="+cartid+"")
+                  
                 }
             
             

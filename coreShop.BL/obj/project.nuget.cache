@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "0MZWEHlVccj4UgSFHFnBGNLvm0onWzMkXfk89GZzGXCpdtW8olzL/dWzDg/jxWjPWQPhwwTby2MACe/fnmWndA==",
+  "dgSpecHash": "ngrLmPBkP7HWrGnL10U2Gfr9EcTL1oiVpH2CuzC2THdEH9cKd64eevFHSJlCaEIa5V6H7o1lfprhLrGlIzDEaA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\EL-Masria\\Desktop\\coreShop\\coreShop.BL\\coreShop.BL.csproj",
+  "projectFilePath": "C:\\Users\\EL-Masria\\Documents\\GitHub\\CoreShopp\\coreShop.BL\\coreShop.BL.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\EL-Masria\\.nuget\\packages\\automapper\\11.0.1\\automapper.11.0.1.nupkg.sha512",
     "C:\\Users\\EL-Masria\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\5.0.5\\microsoft.aspnetcore.cryptography.internal.5.0.5.nupkg.sha512",

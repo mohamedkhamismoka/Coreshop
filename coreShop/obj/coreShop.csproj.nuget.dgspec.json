@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\EL-Masria\\Desktop\\coreShop\\coreShop\\coreShop.csproj": {}
+    "C:\\Users\\EL-Masria\\Documents\\GitHub\\CoreShopp\\coreShop\\coreShop.csproj": {}
   },
   "projects": {
-    "C:\\Users\\EL-Masria\\Desktop\\coreShop\\coreShop.BL\\coreShop.BL.csproj": {
+    "C:\\Users\\EL-Masria\\Documents\\GitHub\\CoreShopp\\coreShop.BL\\coreShop.BL.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\EL-Masria\\Desktop\\coreShop\\coreShop.BL\\coreShop.BL.csproj",
+        "projectUniqueName": "C:\\Users\\EL-Masria\\Documents\\GitHub\\CoreShopp\\coreShop.BL\\coreShop.BL.csproj",
         "projectName": "coreShop.BL",
-        "projectPath": "C:\\Users\\EL-Masria\\Desktop\\coreShop\\coreShop.BL\\coreShop.BL.csproj",
+        "projectPath": "C:\\Users\\EL-Masria\\Documents\\GitHub\\CoreShopp\\coreShop.BL\\coreShop.BL.csproj",
         "packagesPath": "C:\\Users\\EL-Masria\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\EL-Masria\\Desktop\\coreShop\\coreShop.BL\\obj\\",
+        "outputPath": "C:\\Users\\EL-Masria\\Documents\\GitHub\\CoreShopp\\coreShop.BL\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -32,8 +32,8 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "C:\\Users\\EL-Masria\\Desktop\\coreShop\\coreShop.DAL\\coreShop.DAL.csproj": {
-                "projectPath": "C:\\Users\\EL-Masria\\Desktop\\coreShop\\coreShop.DAL\\coreShop.DAL.csproj"
+              "C:\\Users\\EL-Masria\\Documents\\GitHub\\CoreShopp\\coreShop.DAL\\coreShop.DAL.csproj": {
+                "projectPath": "C:\\Users\\EL-Masria\\Documents\\GitHub\\CoreShopp\\coreShop.DAL\\coreShop.DAL.csproj"
               }
             }
           }
@@ -76,14 +76,14 @@
         }
       }
     },
-    "C:\\Users\\EL-Masria\\Desktop\\coreShop\\coreShop.DAL\\coreShop.DAL.csproj": {
+    "C:\\Users\\EL-Masria\\Documents\\GitHub\\CoreShopp\\coreShop.DAL\\coreShop.DAL.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\EL-Masria\\Desktop\\coreShop\\coreShop.DAL\\coreShop.DAL.csproj",
+        "projectUniqueName": "C:\\Users\\EL-Masria\\Documents\\GitHub\\CoreShopp\\coreShop.DAL\\coreShop.DAL.csproj",
         "projectName": "coreShop.DAL",
-        "projectPath": "C:\\Users\\EL-Masria\\Desktop\\coreShop\\coreShop.DAL\\coreShop.DAL.csproj",
+        "projectPath": "C:\\Users\\EL-Masria\\Documents\\GitHub\\CoreShopp\\coreShop.DAL\\coreShop.DAL.csproj",
         "packagesPath": "C:\\Users\\EL-Masria\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\EL-Masria\\Desktop\\coreShop\\coreShop.DAL\\obj\\",
+        "outputPath": "C:\\Users\\EL-Masria\\Documents\\GitHub\\CoreShopp\\coreShop.DAL\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -144,14 +144,14 @@
         }
       }
     },
-    "C:\\Users\\EL-Masria\\Desktop\\coreShop\\coreShop\\coreShop.csproj": {
+    "C:\\Users\\EL-Masria\\Documents\\GitHub\\CoreShopp\\coreShop\\coreShop.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\EL-Masria\\Desktop\\coreShop\\coreShop\\coreShop.csproj",
+        "projectUniqueName": "C:\\Users\\EL-Masria\\Documents\\GitHub\\CoreShopp\\coreShop\\coreShop.csproj",
         "projectName": "coreShop",
-        "projectPath": "C:\\Users\\EL-Masria\\Desktop\\coreShop\\coreShop\\coreShop.csproj",
+        "projectPath": "C:\\Users\\EL-Masria\\Documents\\GitHub\\CoreShopp\\coreShop\\coreShop.csproj",
         "packagesPath": "C:\\Users\\EL-Masria\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\EL-Masria\\Desktop\\coreShop\\coreShop\\obj\\",
+        "outputPath": "C:\\Users\\EL-Masria\\Documents\\GitHub\\CoreShopp\\coreShop\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -172,8 +172,8 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "C:\\Users\\EL-Masria\\Desktop\\coreShop\\coreShop.BL\\coreShop.BL.csproj": {
-                "projectPath": "C:\\Users\\EL-Masria\\Desktop\\coreShop\\coreShop.BL\\coreShop.BL.csproj"
+              "C:\\Users\\EL-Masria\\Documents\\GitHub\\CoreShopp\\coreShop.BL\\coreShop.BL.csproj": {
+                "projectPath": "C:\\Users\\EL-Masria\\Documents\\GitHub\\CoreShopp\\coreShop.BL\\coreShop.BL.csproj"
               }
             }
           }

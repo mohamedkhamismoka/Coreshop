@@ -1,0 +1,16 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "41830c81-6e3c-4d8b-93e6-eae362c9ab8a": {
+      "ProjectGuid": "41830c81-6e3c-4d8b-93e6-eae362c9ab8a",
+      "DisplayName": "coreShop",
+      "ColorIndex": 0
+    },
+    "fd2eabce-a24f-4acf-8751-38a00b4b17d9": {
+      "ProjectGuid": "fd2eabce-a24f-4acf-8751-38a00b4b17d9",
+      "DisplayName": "coreShop.BL",
+      "ColorIndex": 1
+    }
+  },
+  "NextColorIndex": 2
+}
